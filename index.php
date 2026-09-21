@@ -1,6 +1,119 @@
 <?php
 include('conexao_mysql.php');
 
+if(isset($_POST['nome_al'])){
+    $nome_alz = $_POST['nome_al'];
+    $stmtz = $pdo->query("SELECT * FROM alunos WHERE nome LIKE '%".$nome_alz."%'");
+    $nome_aluz = $stmtz->fetchALL(PDO::FETCH_ASSOC);
+    echo  '<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	  <script type="text/javascript">
+            $(window).load(function() {
+                $("#exemplomodal23").modal("show");
+            });
+            </script>   
+	  <div class="modal fade modal-lg" id="exemplomodal23">
+            <div class="modal-dialog">
+              <div class="modal-content">';
+           echo '<div class="modal-header bg-info">
+          <h3 class="modal-title">Selecione o aluno desejado na lista abaixo:</h3>
+      </div>
+      <div class="modal-body bg-light">';
+           
+           echo '<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Numero</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Turma</th>
+      <th scope="col">Turno</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>';
+    $achados = 0;
+    foreach($nome_aluz as $z){
+      $achados ++;
+      if($z['turno'] == 'm'){$periodoz = 'manhã';}else{$periodoz = 'tarde';}
+    echo '<tr>
+      <th scope="row">'.$achados.'</th>
+      <td>'.$z['nome'].'</td>
+      <td>'.$z['turma'].'</td>
+      <td>'.$periodoz.'</td>
+      <td><a class="btn btn-primary" href="?escolhido='.$z['id_aluno'].'">Selecionar</a></td>
+    </tr>';
+    }
+    echo '</tbody>
+</table>';
+           
+      echo '</div>
+      <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+      </div>
+    </div>
+  </div>
+</div>';
+        
+        }
+if(isset($_GET['turma'])){
+    $turma_alz = $_GET['turma'];
+    $stmtz = $pdo->query("SELECT * FROM alunos WHERE turma = ".$turma_alz."");
+    $turma_aluz = $stmtz->fetchALL(PDO::FETCH_ASSOC);
+    echo  '<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	  <script type="text/javascript">
+            $(window).load(function() {
+                $("#exemplomodal23").modal("show");
+            });
+            </script>   
+	  <div class="modal fade modal-lg" id="exemplomodal23">
+            <div class="modal-dialog">
+              <div class="modal-content">';
+           echo '<div class="modal-header bg-info">
+          <h3 class="modal-title">Selecione o aluno desejado na lista abaixo:</h3>
+      </div>
+      <div class="modal-body bg-light">';
+           
+           echo '<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Numero</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Turma</th>
+      <th scope="col">Turno</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>';
+    $achados = 0;
+    foreach($turma_aluz as $z){
+      $achados ++;
+      if($z['turno'] == 'm'){$periodoz = 'manhã';}else{$periodoz = 'tarde';}
+    echo '<tr>
+      <th scope="row">'.$achados.'</th>
+      <td>'.$z['nome'].'</td>
+      <td>'.$z['turma'].'</td>
+      <td>'.$periodoz.'</td>
+      <td><a class="btn btn-primary" href="?escolhido='.$z['id_aluno'].'">Selecionar</a></td>
+    </tr>';
+    }
+    echo '</tbody>
+</table>';
+           
+      echo '</div>
+      <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+      </div>
+    </div>
+  </div>
+</div>';
+        
+        }
+
+
+
 $stmt = $pdo->query('SELECT * FROM alunos');
 $nome_al = $stmt->fetchALL(PDO::FETCH_ASSOC);
 //echo $nome_al['nome'];
@@ -24,55 +137,49 @@ $pri = $selecionados[0];
 $sec = $selecionados[1];
 $ter = $selecionados[2];
 
-echo $pri." - ".$sec." - ".$ter;
 
-$stmt = $pdo->query('SELECT * FROM alunos WHERE id_aluno = '.$pri);
-$nome_al = $stmt->fetch(PDO::FETCH_ASSOC);
-$nome1 = $nome_al['nome'];
-$turma1 = $nome_al['turma'];
-$periodo1 ='';
-if($nome_al['turno'] == 'm'){$periodo1 = 'manhã';}else{$periodo1 = 'tarde';}
-
-$stmt = $pdo->query('SELECT * FROM alunos WHERE id_aluno = '.$pri);
-$nome_al2 = $stmt->fetch(PDO::FETCH_ASSOC);
-$nome12 = $nome_al2['nome'];
-$turma12 = $nome_al2['turma'];
-$periodo12 ='';
-if($nome_al2['turno'] == 'm'){$periodo12 = 'manhã';}else{$periodo12 = 'tarde';}
-
-$stmt = $pdo->query('SELECT * FROM alunos WHERE id_aluno = '.$pri);
-$nome_al3 = $stmt->fetch(PDO::FETCH_ASSOC);
-$nome13 = $nome_al3['nome'];
-$turma13 = $nome_al3['turma'];
-$periodo13 ='';
-if($nome_al3['turno'] == 'm')
-{$periodo13 = 'manhã';}else{$periodo13 = 'tarde';}
 
 $slide1 = '';
 $slide2 = '';
 $slide3 = '';
-$stmt = $pdo->query('SELECT id_pintura FROM pintura WHERE id_aluno = '.$pri);
-if($stmt != ''){
-$pintura1 = $stmt->fetch(PDO::FETCH_ASSOC);
-$slide1 = $pintura1['id_pintura'];
-}else{
-    $slide1 = 0;
-}
 
-$stmt2 = $pdo->query('SELECT id_pintura FROM pintura WHERE id_aluno = '.$sec);
-if($stmt2 != ''){
-$pintura2 = $stmt2->fetch(PDO::FETCH_ASSOC);
-$slide2 = $pintura2['id_pintura'];
-}else{
-    $slide2 = 0;
-}
-$stmt3 = $pdo->query('SELECT id_pintura FROM pintura WHERE id_aluno = '.$ter);
-if($stmt3 != ''){
-$pintura3 = $stmt3->fetch(PDO::FETCH_ASSOC);
-$slide3 = $pintura3['id_pintura'];
-}else{
-    $slide3 = 0;
-}
+$nome1 = '';
+$turma1 = '';
+$periodo1 ='';
+$desc1 = '';
+        
+$nome12 = '';
+$turma12 = '';
+$periodo12 ='';
+$desc12 = '';
+        
+$nome13 = '';
+$turma13 = '';
+$periodo13 ='';
+$desc13 = '';
+
+foreach ($nome_al as $n){
+     if($n['id_aluno'] == $pri){
+         $slide1 = $n['fluid'];
+         $nome1 = $n['nome'];
+         $turma1 = $n['turma'];
+         $desc1 = $n['desc_fluid'];
+         if($n['turno'] == 'm'){$periodo1 = 'manhã';}else{$periodo1 = 'tarde';}
+     }elseif($n['id_aluno'] == $sec){
+         $slide2 = $n['fluid'];
+         $nome12 = $n['nome'];
+         $turma12 = $n['turma'];
+         $desc12 = $n['desc_fluid'];
+         if($n['turno'] == 'm'){$periodo1 = 'manhã';}else{$periodo1 = 'tarde';}
+     }elseif($n['id_aluno'] == $ter){
+         $slide3 = $n['fluid'];
+         $nome13 = $n['nome'];
+         $turma13 = $n['turma'];
+         $desc13 = $n['desc_fluid'];
+         if($n['turno'] == 'm'){$periodo1 = 'manhã';}else{$periodo1 = 'tarde';}
+     }
+ }
+
 ?>
 
 <!DOCTYPE html>
@@ -86,6 +193,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <title></title>
+        <meta http-equiv="refresh" content="30">
     </head>
     <body style="background-color:#00BFFF">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -103,12 +211,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             Opções
           </button>
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="turma_11.php">Turma 11</a></li>
-            <li><a class="dropdown-item" href="turma_12.php">Turma 12</a></li>
-            <li><a class="dropdown-item" href="turma_13.php">Turma 13</a></li>
-            <li><a class="dropdown-item" href="turma_14.php">Turma 14</a></li>
-            <li><a class="dropdown-item" href="turma_15.php">Turma 15</a></li>
-            <li><a class="dropdown-item" href="turma_16.php">Turma 16</a></li>
+            <li><a class="dropdown-item" href="?turma=11">Turma 11</a></li>
+            <li><a class="dropdown-item" href="?turma=12">Turma 12</a></li>
+            <li><a class="dropdown-item" href="?turma=13">Turma 13</a></li>
+            <li><a class="dropdown-item" href="?turma=14">Turma 14</a></li>
+            <li><a class="dropdown-item" href="?turma=15">Turma 15</a></li>
+            <li><a class="dropdown-item" href="?turma=16">Turma 16</a></li>
           </ul>
         </li>
       </ul>
@@ -124,17 +232,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         
         echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-              <h1 align="center">Josias Santos de Azevedo</h1>
-              <img src="img/turma'.$turma1.'/fluid/'.$slide1.'.png" class="d-block w-100">
+          <div class="carousel-item active" style="text-align: center;">
+              <h1 align="center" >'.$nome1.'</h1>
+              <img src="img/turma_'.$turma1.'/fluid/'.$slide1.'.png" style="height: 700px; width: auto;">
           </div>
-          <div class="carousel-item">
-              <h1 align="center">Josias Santos de Azevedo</h1>
-              <img src="img/turma'.$turma12.'/fluid/'.$slide2.'.png" class="d-block w-100 h-50">
+          <div class="carousel-item" style="text-align: center;">
+              <h1 align="center">'.$nome12.'</h1>
+              <img src="img/turma_'.$turma12.'/fluid/'.$slide2.'.png" style="height: 700px; width: auto;">
           </div>
-          <div class="carousel-item">
-              <h1 align="center">Josias Santos de Azevedo</h1>
-              <img src="img/turma'.$turma13.'/fluid/'.$slide3.'.png" class="d-block w-100 h-50">
+          <div class="carousel-item" style="text-align: center;">
+              <h1 align="center">'.$nome13.'</h1>
+              <img src="img/turma_'.$turma13.'/fluid/'.$slide3.'.png" style="height: 700px; width: auto;">
               </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -156,10 +264,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <h5 class="modal-title">Busca por nome do aluno</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-        <form method="POST" action="busca_aluno.php">
+        <form method="POST" action="">
       <div class="modal-body">
         <label for="exampleInputEmail1" class="form-label">Nome:</label>
-        <input type="text" class="form-control" placeholder="Digite o nome do aluno..."> 
+        <input type="text" name="nome_al" class="form-control" placeholder="Digite o nome do aluno..."> 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
