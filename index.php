@@ -19,7 +19,7 @@ if(isset($_POST['nome_al'])){
           <h3 class="modal-title">Selecione o aluno desejado na lista abaixo:</h3>
       </div>
       <div class="modal-body bg-light">';
-           
+           if(strlen($_POST['nome_al']) >= 3){
            echo '<table class="table">
   <thead class="thead-dark">
     <tr>
@@ -45,7 +45,11 @@ if(isset($_POST['nome_al'])){
     }
     echo '</tbody>
 </table>';
-           
+           }else{
+               echo '<h2 align="center" class="alert alert-danger">É necessario que a busca tenha mais de 3 letras.</h2>';
+               echo '<h3>Por favor,</h3>';
+               echo '<h3>feche o aviso e pesquise novamente. Obrigado!</h3>';
+           }
       echo '</div>
       <div class="modal-footer bg-light">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -100,6 +104,77 @@ if(isset($_GET['turma'])){
     }
     echo '</tbody>
 </table>';
+           
+      echo '</div>
+      <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+      </div>
+    </div>
+  </div>
+</div>';
+        
+        }
+if(isset($_GET['escolhido'])){
+    $escolhido = $_GET['escolhido'];
+    $stmtze = $pdo->query("SELECT * FROM alunos WHERE id_aluno = ".$escolhido."");
+    $d_escolhido = $stmtze->fetch(PDO::FETCH_ASSOC);
+    if($d_escolhido['fluid'] != 0){
+        $slide_escolhido_fluid = $d_escolhido['fluid'];
+    }else{
+        $slide_escolhido_fluid = 0;
+    }
+    if($d_escolhido['splash'] != 0){
+        $slide_escolhido_splash = $d_escolhido['splash'];
+    }else{
+        $slide_escolhido_splash = 0;
+    }
+    echo  '<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	  <script type="text/javascript">
+            $(window).load(function() {
+                $("#exemplomodal23").modal("show");
+            });
+            </script>   
+	  <div class="modal fade modal-lg" id="exemplomodal23">
+            <div class="modal-dialog">
+              <div class="modal-content">';
+           echo '<div class="modal-header bg-info">
+          <h3 class="modal-title">Resultado do aluno selecionado:</h3>
+      </div>
+      <div class="modal-body bg-light">';
+           
+           echo '<div id="carouselExample2" class="carousel slide carousel-fade" >
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="text-align: center;">
+              <h1 align="center" >'.$d_escolhido['nome'].'</h1>
+              <img src="img/turma_'.$d_escolhido['turma'].'/fluid/'.$slide_escolhido_fluid.'.png" style="height: 500px; width: auto;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-dark">TITULO DA OBRA</h3>
+                <h1 class="text-dark">'.$d_escolhido['desc_fluid'].'</h1>
+              </div>
+          
+          </div>
+          <div class="carousel-item" style="text-align: center;">
+              <h1 align="center">'.$d_escolhido['nome'].'</h1>
+              <img src="img/turma_'.$d_escolhido['turma'].'/splash/'.$slide_escolhido_splash.'.png" style="height: 500px; width: auto;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-dark">TITULO DA OBRA</h3>
+                <h1 class="text-dark">'.$d_escolhido['desc_splash'].'</h1>
+              </div>
+          
+          </div>
+          
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+          <span class="btn btn-dark carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+          <span class="btn btn-dark carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>';
            
       echo '</div>
       <div class="modal-footer bg-light">
@@ -170,13 +245,13 @@ foreach ($nome_al as $n){
          $nome12 = $n['nome'];
          $turma12 = $n['turma'];
          $desc12 = $n['desc_fluid'];
-         if($n['turno'] == 'm'){$periodo1 = 'manhã';}else{$periodo1 = 'tarde';}
+         if($n['turno'] == 'm'){$periodo12 = 'manhã';}else{$periodo12 = 'tarde';}
      }elseif($n['id_aluno'] == $ter){
          $slide3 = $n['fluid'];
          $nome13 = $n['nome'];
          $turma13 = $n['turma'];
          $desc13 = $n['desc_fluid'];
-         if($n['turno'] == 'm'){$periodo1 = 'manhã';}else{$periodo1 = 'tarde';}
+         if($n['turno'] == 'm'){$periodo13 = 'manhã';}else{$periodo13 = 'tarde';}
      }
  }
 
@@ -193,12 +268,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <title></title>
-        <meta http-equiv="refresh" content="30">
+        <meta http-equiv="refresh" content="60">
     </head>
     <body style="background-color:#00BFFF">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-     <a class="navbar-brand" href="#"><img src="img/logo.png" style="width: 40px; height: 40px"> 
+     <a class="navbar-brand" href="index.php"><img src="img/logo.png" style="width: 40px; height: 40px"> 
          Santolino Gonçalves dos Santos 
       </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -234,15 +309,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <div class="carousel-inner">
           <div class="carousel-item active" style="text-align: center;">
               <h1 align="center" >'.$nome1.'</h1>
+              <h3 align="center" >Turma: '.$turma1.' Turno: '.$periodo1.'</h3>
               <img src="img/turma_'.$turma1.'/fluid/'.$slide1.'.png" style="height: 700px; width: auto;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-dark">TITULO DA OBRA</h3>
+                <h1 class="text-dark">'.$desc1.'</h1>
+              </div> 
           </div>
           <div class="carousel-item" style="text-align: center;">
               <h1 align="center">'.$nome12.'</h1>
+              <h3 align="center" >Turma: '.$turma12.' Turno: '.$periodo12.'</h3>
               <img src="img/turma_'.$turma12.'/fluid/'.$slide2.'.png" style="height: 700px; width: auto;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-dark">TITULO DA OBRA</h3>
+                <h1 class="text-dark">'.$desc12.'</h1>
+              </div>
           </div>
           <div class="carousel-item" style="text-align: center;">
               <h1 align="center">'.$nome13.'</h1>
+              <h3 align="center" >Turma: '.$turma13.' Turno: '.$periodo13.'</h3>
               <img src="img/turma_'.$turma13.'/fluid/'.$slide3.'.png" style="height: 700px; width: auto;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-dark">TITULO DA OBRA</h3>
+                <h1 class="text-dark">'.$desc13.'</h1>
+              </div> 
               </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
