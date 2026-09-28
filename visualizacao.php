@@ -82,20 +82,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <meta http-equiv="refresh" content="30">
     </head>
     <body style="background-color:#00BFFF">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid" style="display: flex;justify-content: center;  align-items: center;">
+     <a class="navbar-brand" href="index.php">
+         <h2><img src="img/logo.png" style="width: 80px; height: 80px">  Exposição Artistica 2026 - Santolino Gonçalves dos Santos </h2>
+      </a>
+  </div>
+        </nav>
         <?php
         echo '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" style="text-align: center;">
               <h1 align="center" >'.$nome1.'</h1>
-              <img src="img/turma_'.$turma1.'/fluid/'.$slide1.'.png" style="height: 700px; width: auto;">
+              <h1 align="center"> Turma: '.$turma1.' Turno: '.$periodo1.'</h1>
+                <img src="img/turma_'.$turma1.'/fluid/'.$slide1.'.png" style="height: 700px; width: auto;">
+                  <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-dark">TITULO DA OBRA</h3>
+                <h1 class="text-dark">'.$desc1.'</h1>
+              </div>
           </div>
           <div class="carousel-item" style="text-align: center;">
               <h1 align="center">'.$nome12.'</h1>
-              <img src="img/turma_'.$turma12.'/fluid/'.$slide2.'.png" style="height: 700px; width: auto;">
+              <h1 align="center"> Turma: '.$turma12.' Turno: '.$periodo12.'</h1>
+                <img src="img/turma_'.$turma12.'/fluid/'.$slide2.'.png" style="height: 700px; width: auto;">
+                  <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-dark">TITULO DA OBRA</h3>
+                <h1 class="text-dark">'.$desc12.'</h1>
+              </div>
           </div>
           <div class="carousel-item" style="text-align: center;">
               <h1 align="center">'.$nome13.'</h1>
-              <img src="img/turma_'.$turma13.'/fluid/'.$slide3.'.png" style="height: 700px; width: auto;">
+              <h1 align="center"> Turma: '.$turma13.' Turno: '.$periodo13.'</h1>
+                <img src="img/turma_'.$turma13.'/fluid/'.$slide3.'.png" style="height: 700px; width: auto;">
+                  <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-dark">TITULO DA OBRA</h3>
+                <h1 class="text-dark">'.$desc13.'</h1>
+              </div>
               </div>
         </div>
       

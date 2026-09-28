@@ -276,9 +276,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
      <a class="navbar-brand" href="index.php"><img src="img/logo.png" style="width: 40px; height: 40px"> 
          Santolino Gonçalves dos Santos 
       </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    
     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -292,6 +290,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             <li><a class="dropdown-item" href="?turma=14">Turma 14</a></li>
             <li><a class="dropdown-item" href="?turma=15">Turma 15</a></li>
             <li><a class="dropdown-item" href="?turma=16">Turma 16</a></li>
+            <li><a class="dropdown-item" href="https://david.li/paint/" target="_blank">Site Fluid Paint</a></li>
+            <li><a class="dropdown-item" href="https://artsandculture.google.com/experiment/splash-canvas/vQFCtQB7FDnYkA?hl=pt-BR" target="_blank">Site Splash Canva</a></li>
           </ul>
         </li>
       </ul>
@@ -310,7 +310,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
           <div class="carousel-item active" style="text-align: center;">
               <h1 align="center" >'.$nome1.'</h1>
               <h3 align="center" >Turma: '.$turma1.' Turno: '.$periodo1.'</h3>
-              <img src="img/turma_'.$turma1.'/fluid/'.$slide1.'.png" style="height: 700px; width: auto;">
+              <img src="img/turma_'.$turma1.'/fluid/'.$slide1.'.png" style="height: 670px; width: auto;">
               <div class="carousel-caption d-none d-md-block">
                 <h3 class="text-dark">TITULO DA OBRA</h3>
                 <h1 class="text-dark">'.$desc1.'</h1>
@@ -319,7 +319,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
           <div class="carousel-item" style="text-align: center;">
               <h1 align="center">'.$nome12.'</h1>
               <h3 align="center" >Turma: '.$turma12.' Turno: '.$periodo12.'</h3>
-              <img src="img/turma_'.$turma12.'/fluid/'.$slide2.'.png" style="height: 700px; width: auto;">
+              <img src="img/turma_'.$turma12.'/fluid/'.$slide2.'.png" style="height: 670px; width: auto;">
               <div class="carousel-caption d-none d-md-block">
                 <h3 class="text-dark">TITULO DA OBRA</h3>
                 <h1 class="text-dark">'.$desc12.'</h1>
@@ -328,7 +328,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
           <div class="carousel-item" style="text-align: center;">
               <h1 align="center">'.$nome13.'</h1>
               <h3 align="center" >Turma: '.$turma13.' Turno: '.$periodo13.'</h3>
-              <img src="img/turma_'.$turma13.'/fluid/'.$slide3.'.png" style="height: 700px; width: auto;">
+              <img src="img/turma_'.$turma13.'/fluid/'.$slide3.'.png" style="height: 670px; width: auto;">
               <div class="carousel-caption d-none d-md-block">
                 <h3 class="text-dark">TITULO DA OBRA</h3>
                 <h1 class="text-dark">'.$desc13.'</h1>
