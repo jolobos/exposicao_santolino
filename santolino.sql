@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27/09/2026 às 20:09
+-- Tempo de geração: 28/09/2026 às 17:58
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -106,7 +106,73 @@ INSERT INTO `alunos` (`id_aluno`, `nome`, `turma`, `turno`, `fluid`, `splash`, `
 (62, 'MIGUEL SOUZA GOMES ', 13, 'm', 17, 18, 'Uma casa', 'Alegria'),
 (63, 'MILENA GONCALVES SILVEIRA DA SILVA', 13, 'm', 18, 19, 'Minha casa', 'Feliz'),
 (64, 'PEDRO CARDOZO MAIA', 13, 'm', 19, 20, 'Indo para o Uruguai', 'Felicidade'),
-(65, 'YASMIM OLIVEIRA FERULA', 13, 'm', 20, 21, 'Eu e a minha familia na pracinha', 'Insegura');
+(65, 'YASMIM OLIVEIRA FERULA', 13, 'm', 20, 21, 'Eu e a minha familia na pracinha', 'Insegura'),
+(66, 'ANTHONY DOS SANTOS MACHADO', 14, 't', 1, 1, 'Arte abstrata', 'Alegria'),
+(67, 'ANTONIO ROCHA MARTINS', 14, 't', 2, 2, 'eu e a minha familia', 'Alegria'),
+(68, 'BENJAMIN MARTINS LUMMERTZ', 14, 't', 0, 3, '', 'Alegria'),
+(69, 'CAROLINA MOTTOLA RIBEIRO', 14, 't', 0, 4, '', 'Amor'),
+(70, 'Danilo Santos Lummertz Novaski', 14, 't', 3, 5, 'Uma casa vermelha', 'Alegria'),
+(71, 'ENZO RODRIGO CLAUDINO COSTA', 14, 't', 4, 6, 'Meu pai, mãe e eu em casa', 'Alegria'),
+(72, 'ESTER RAMOS ZEQUIEL', 14, 't', 5, 7, 'Uma casa', 'Feliz'),
+(73, 'GABRIELA RAMOS PACHECO', 14, 't', 6, 8, 'Uma tarde ensolarada', 'Alegria'),
+(74, 'Helena de Carlo Gianastasio', 14, 't', 7, 9, 'Eu brincando', 'Alegria'),
+(75, 'Helena de Oliveira Mattos', 14, 't', 8, 10, 'Flores com sol', 'Alegria'),
+(76, 'Helena Greiner Silveira ', 14, 't', 9, 11, 'Chuva com sol', 'Alegria e raiva'),
+(77, 'Henry Sthephano Oliveira Bolcão', 14, 't', 10, 12, 'Uma casa vermelha', 'Amor'),
+(78, 'ISIS SANTOS FERRAZ', 14, 't', 11, 13, 'Um arco-iris', 'Amor e alegria'),
+(79, 'JOAO LUCAS CABREIRA LUMERTZ', 14, 't', 0, 14, '', 'Alegria'),
+(80, 'João Miguel Castro Bezerra', 14, 't', 12, 15, 'Eu e minha casa', 'Amor'),
+(81, 'LIVIA TRINDADE COZZA', 14, 't', 13, 16, 'A vista com o sol', 'Alegria e diversão'),
+(82, 'Mateus Rocho Gomes', 14, 't', 14, 17, 'Minha familia na festa junina', 'Alegria'),
+(83, 'Pedro Nunes Roldão Neto', 14, 't', 15, 18, 'Minha casa', 'Amor feliz'),
+(84, 'PIETRO EMANOEL DE SOUZA JOAQUIM', 14, 't', 16, 19, 'Eu tomando banho de mar', 'Amor e amado'),
+(85, 'Rafael Lorran Oliveira Lacerda', 14, 't', 17, 20, 'Minha casa listrada', 'Alegria'),
+(86, 'Sarah Alves Grezzana', 14, 't', 6, 21, 'Uma tarde ensolarada', 'Alegria'),
+(87, 'THIAGO PADILHA ZWIERZINSKI', 14, 't', 18, 0, 'Familia na montanha', ''),
+(88, 'ALICE LIPPERT STEFFEN ', 15, 't', 1, 0, 'A praia', ''),
+(89, 'Allana Silveira Machado ', 15, 't', 2, 1, 'Coração no mato', 'Feliz'),
+(90, 'ANTONELLA SCHEFFER DA SILVA', 15, 't', 3, 2, 'Eu e a Sofy na praia', 'Apaixonada pelo mar'),
+(91, ' Antonia Manoela Pinheiro Bellotto', 15, 't', 4, 3, 'Meu ursinho', 'Alegria'),
+(92, 'Catarina Godoi Claros', 15, 't', 5, 4, 'Férias de verão', 'Amor'),
+(93, 'Esther Andrielly Hoffumann da Silva', 15, 't', 6, 5, 'Um coração no sol com a montanha', 'Feliz'),
+(94, 'FLAVIA DANIELI IDALENCIO DE MATOS', 15, 't', 0, 6, '', 'Medo'),
+(95, 'GAEL BENCHIMOL RODRIGUES SCARIOT', 15, 't', 7, 7, 'Meu coração', 'Raiva'),
+(96, 'GAEL MORAES SCHEFFER EVALDT', 15, 't', 0, 8, '', 'Feliz'),
+(97, 'José Emanuel Silva Piriz', 15, 't', 8, 9, 'Bandeira do Brasil', 'Altruismo'),
+(98, 'JULIA SANTOS DA SILVA', 15, 't', 10, 10, 'Bandeira do Brasil', 'Felicidade'),
+(99, 'LARISSA PERES ROSA', 15, 't', 11, 11, 'Uma casa no Sol', 'Feliz'),
+(100, 'LAWREN EUZEBIO DA SILVA', 15, 't', 12, 12, 'Tipo um arco-iris', 'Feliz'),
+(101, 'LIVIA DOS SANTOS LIMA', 15, 't', 13, 13, 'Um Sol, uma casa com arvore e uma bolinha vermelha', 'Alegre'),
+(102, 'MANUELA SIMA ZARTH', 15, 't', 14, 14, 'Uma praia', 'Amor'),
+(103, 'MARIA CECILIA GODINHO SANTOS', 15, 't', 15, 15, 'O mar', 'Alegria'),
+(104, 'MIGUEL MUNZERT DE MATTOS', 15, 't', 16, 16, 'Bandeira do Brasil', 'Feliz'),
+(105, 'OTAVIO DA COSTA DE OLIVEIRA', 15, 't', 17, 0, 'Minha casa na chuva', ''),
+(106, 'PEDRO ALBINO GOEDERT', 15, 't', 18, 17, 'Céu e a Terra', 'Alegria e amor'),
+(107, 'SOPHIA DA SILVA SCHEFFER', 15, 't', 0, 18, '', 'Amor'),
+(108, 'TAIONA MORAES SCHEFFER', 15, 't', 19, 19, 'Eu e minha familia', 'Amor e misturança'),
+(109, 'VALENTINA VEDOY WOICIECHOWSKI ', 15, 't', 20, 20, 'Obra de arte com muitas cores', 'Corajoso'),
+(110, 'YASMIN ANTONIO PERES', 15, 't', 21, 21, 'Arco-iris nas nuvens', 'Amor'),
+(111, 'Ana Vitória Vitt Rodrigues ', 16, 't', 1, 1, 'Arco-iris da Ana', 'Amor'),
+(112, 'ANTHONY DA SILVA BAUER', 16, 't', 2, 2, 'Arte de museu', 'Alegria'),
+(113, 'Anthony Miguel Machado de Souza', 16, 't', 0, 0, '', ''),
+(114, 'BENJAMIN NUNES', 16, 't', 3, 3, 'Um cachorro, um A e um Sol', 'Raiva'),
+(115, 'CASTIEL JESUS PINTO CANDIDO', 16, 't', 4, 0, 'Portugal musical', ''),
+(116, 'CHRISTIAN EZEQUIEL MACIEL ', 16, 't', 5, 4, 'Foguete caindo', 'Amor'),
+(117, 'DAVI RAPHAEL DE SOUZA RIBEIRO', 16, 't', 6, 5, 'A casa dos indios', 'Amor'),
+(118, 'ELOA BARBOSA FRAITAG', 16, 't', 7, 6, 'Eu e a minha irmã', 'Amor'),
+(119, 'HELENA DA ROSA DE MELO', 16, 't', 8, 7, 'É um pakour', 'Paixão'),
+(120, 'HELENA DOS SANTOS RODRIGUES', 16, 't', 9, 8, 'Morro do farol', 'Chamego'),
+(121, 'KIMBERLI TESTA ROLDAO', 16, 't', 0, 9, '', 'Amor'),
+(122, 'LORENA CARDOSO DE OLIVEIRA', 16, 't', 10, 10, 'A arte', 'Felicidade'),
+(123, 'Lorenzo Emanuel Almeida Silveira', 16, 't', 11, 11, 'Arco-iris', 'Amor'),
+(124, 'Manuella Ribasqui Santiago', 16, 't', 12, 12, 'Uma casa', 'Amor'),
+(125, 'Maya da Silva Scheffer', 16, 't', 13, 13, 'Arco-iris da Maya', 'Amor'),
+(126, 'Miguel Martins Bertagnolli', 16, 't', 14, 14, 'Eu andando de carro', 'Alegria'),
+(127, 'Murillo Feijó Alves', 16, 't', 0, 15, '', 'Amor'),
+(128, 'NYCOLLE BRESOLIN DOS SANTOS BOFF', 16, 't', 15, 16, 'Eu e a minha casa', 'Amor'),
+(129, 'PIETRO BORBA DE CARVALHO', 16, 't', 16, 0, 'Eu feliz', ''),
+(130, 'RAFAELLA DA SILVA DE ABREU', 16, 't', 17, 17, 'Uma pintura do céu', 'Feliz'),
+(131, 'Sofia Zeferino Justo', 16, 't', 18, 18, 'Arte maluca', 'Alegria');
 
 --
 -- Índices para tabelas despejadas
@@ -126,7 +192,7 @@ ALTER TABLE `alunos`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id_aluno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_aluno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
